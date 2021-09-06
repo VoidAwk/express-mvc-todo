@@ -1,0 +1,16 @@
+html 
+    head 
+        title To-Do List 
+    body 
+        h1 Index (To-Do List)
+        form(method='post' action='/add-todo')
+            label(for='title') Title
+            input(type='text' name='title')
+            br
+            label(for='body') Body
+            input(type='text' name='body')
+            br 
+            input(type='submit' value='Add Todo Item')
+        each todoItem in todoData 
+            h2= todoItem.title
+            p= todoItem.body
