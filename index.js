@@ -19,16 +19,9 @@ app.use(expressUrlEncoded)
 
 // Route Handlers
 
-app.get('/', (req, res, next) => {
-    const fakeTodos = data.todoItems;
-    res.render('index.pug', {todoData: fakeTodos})
-})
+const indexRouter = require('./routes/index.routes')
 
-app.post('/add-todo', (req, res, next) => {
-    const requestBody = req.body
-    data.todoItems.push(requestBody)
-    res.redirect('/')
-})
+app.use('/', indexRouter)
 
 app.listen(
     config.PORT,
